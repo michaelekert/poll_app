@@ -1,0 +1,7 @@
+  <div id="poll_choice_<%= choice.id %>" class="flex items-center justify-between border rounded p-3 mb-2">
+    <label class="flex items-center gap-2 w-full cursor-pointer">
+      <%= radio_button_tag :poll_choice_id, choice.id, false, class: "form-radio text-blue-600" %>
+      <span class="text-lg font-medium"><%= choice.name %></span>
+    </label>
+    <span class="text-gray-500 text-sm"><%= choice.votes.count %> głosów</span>
+  </div>

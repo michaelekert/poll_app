@@ -1,0 +1,19 @@
+<div class="min-h-screen flex items-center justify-center bg-gray-100 p-6">
+  <div class="w-full max-w-xl bg-white rounded-2xl shadow-lg p-6 space-y-6">
+
+    <h1 class="text-2xl font-bold text-center mb-4"><%= @poll.question %></h1>
+
+    <%= form_with url: poll_vote_path(@poll), method: :post, local: true do %>
+    <%= turbo_stream_from "votes"%>
+      <div id="votes">
+        <%= render partial: "polls/poll_choice", collection: @poll_choices, as: :choice %>
+      </div>
+
+      <div class="mt-6 text-center">
+        <%= submit_tag "Zagłosuj", class: "bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600" %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
+
